@@ -1,0 +1,32 @@
+<app-header></app-header>
+<br/>
+<br/>
+<br/>
+<div style="padding: 0px 0px 0px 20px">
+    <form [formGroup]="myForm" enctype="multipart/form-data">
+        <div>
+            <label for="file">Selecione um arquivo</label><br/><br/>
+            <input 
+                formControlName="file"
+                id="file" 
+                type="file" 
+                multiple
+                style="color: #3f51b5"
+                (change)="onFileChange($event)">
+
+        </div>
+        
+        <br/><br/>
+        
+        <button mat-raised-button color="primary" type="button" [disabled]="desabilitaBotao" (click)="submit()">Enviar</button>
+    </form>
+
+    <div  *ngIf="mostrarLoader" style="background-color:white; position: absolute; top: 100px; left: 20px; width: 200px; height: 200px;">
+        <mat-spinner></mat-spinner>
+    </div>
+</div>
+
+<br/>
+<br/>
+<br/>
+<app-footer></app-footer>
